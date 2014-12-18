@@ -1,0 +1,27 @@
+{
+  "name": "lionjs",
+  "version": "0.0.0",
+  "description": "Lightweight model layer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asilluron/lionjs.git"
+  },
+  "keywords": [
+    "lion",
+    "js",
+    "lionjs",
+    "models",
+    "mongoose",
+    "angular"
+  ],
+  "author": "Andrew Silluron, Brian Schneider, Jeromy Maligie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/asilluron/lionjs/issues"
+  },
+  "homepage": "https://github.com/asilluron/lionjs"
+}

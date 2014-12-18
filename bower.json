@@ -1,0 +1,34 @@
+{
+  "name": "lionjs",
+  "version": "0.0.0",
+  "homepage": "http://lionjs.com",
+  "authors": [
+    "Andrew Silluron <asilluron@users.noreply.github.com>"
+  ],
+  "description": "Model layer for the front end",
+  "main": "dist/lion.js",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "Lion",
+    "JS",
+    "Lion",
+    "JS",
+    "models",
+    "Angular",
+    "lightweight",
+    "mongoose"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
