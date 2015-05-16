@@ -2,7 +2,7 @@
   "name": "lionjs",
   "version": "0.0.0",
   "description": "Lightweight model layer for Angular 1.x",
-  "main": "lion.js",
+  "main": "dist/lion.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,5 +23,16 @@
   "bugs": {
     "url": "https://github.com/asilluron/lionjs/issues"
   },
-  "homepage": "lionjs.com"
+  "homepage": "http://lionjs.com",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-mocha": "^2.0.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-wrapper": "^1.0.0"
+  },
+  "dependencies": {
+    "joi": "^6.4.1"
+  }
 }

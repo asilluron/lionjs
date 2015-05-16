@@ -6,7 +6,7 @@
     "Andrew Silluron <asilluron@users.noreply.github.com>"
   ],
   "description": "Model layer for the front end",
-  "main": "lion.js",
+  "main": "dist/lion.js",
   "moduleType": [
     "amd",
     "globals",
