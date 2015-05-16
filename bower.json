@@ -29,5 +29,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "joi-browserify": "~0.0.3"
+  }
 }

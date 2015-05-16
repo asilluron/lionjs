@@ -4,7 +4,7 @@
   "description": "Lightweight model layer for Angular 1.x",
   "main": "dist/lion.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -25,12 +25,20 @@
   },
   "homepage": "http://lionjs.com",
   "devDependencies": {
+    "babelify": "^6.1.1",
     "gulp": "^3.8.11",
     "gulp-babel": "^5.1.0",
     "gulp-concat": "^2.5.2",
-    "gulp-mocha": "^2.0.1",
     "gulp-sourcemaps": "^1.5.2",
-    "gulp-wrapper": "^1.0.0"
+    "gulp-wrapper": "^1.0.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.31",
+    "karma-babel-preprocessor": "^5.1.0",
+    "karma-browserify": "^4.1.2",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "phantomjs": "^1.9.16"
   },
   "dependencies": {
     "joi": "^6.4.1"
