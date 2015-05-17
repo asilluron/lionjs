@@ -37,21 +37,18 @@ gulp.task('karma-test', function (done) {
  */
 gulp.task('tdd', function (done) {
   karma.start({
-    configFile: __dirname + '/karma.conf.js'
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: false
   }, done);
 });
 
 gulp.task('watch', function (done) {
-  karma.start({
-    configFile: __dirname + '/karma.conf.js',
-    singleRun: false
-  }, done);
-
   gulp.watch(paths.src, ['babel']);
 });
 
 
-gulp.task('test', ['babel', 'karma-test']);
+gulp.task('develop', ['watch', 'tdd']);
+
 
 gulp.task('default', ['babel']);
 

@@ -1,6 +1,7 @@
 import Joi from "joi";
+import angular from "angular";
 
-export default function Lion(models) {
+export default function Lion(schema) {
 
     //Test JOI Schema
     var schema = Joi.object().keys({
@@ -11,5 +12,5 @@ export default function Lion(models) {
         email: Joi.string().email()
     }).with('username', 'birthyear').without('password', 'access_token');
 
-    return "test";
+    return angular.module(schema.moduleName, []).value('a', 123)
 }
