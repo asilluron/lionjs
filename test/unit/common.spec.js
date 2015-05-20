@@ -6,15 +6,27 @@ describe("Common Behavior", function () {
             moduleName: "moduleName",
             form: {
                 person: {
-                    name: "Joi.string().alphanum().min(3).max(30).required()"
+                    name: ["string", "alphanum", {
+                        min: 3
+                    }, {
+                        max: 30
+                    }, "required"]
                 }
             },
             model: {
                 person: {
-                    name: "Joi.string().alphanum().min(3).max(30).required()"
+                    name: ["string", "alphanum", {
+                        min: 3
+                    }, {
+                        max: 30
+                    }, "required"]
                 },
                 car: {
-                    name: "Joi.string().alphanum().min(3).max(30).required()"
+                    name: ["string", "alphanum", {
+                        min: 3
+                    }, {
+                        max: 30
+                    }, "required"]
                 }
             }
         };
@@ -27,17 +39,38 @@ describe("Common Behavior", function () {
             });
 
             it("will return an angular module", function () {
-
                 var testModule = angular.module('a', []).value('a', 123);
 
                 expect(Object.keys(lionModule)).toEqual(Object.keys(testModule));
             });
 
             it("names the angular module using moduleName", function () {
-                expect(lionModule.name).toEqual(testSchema.name);
+                expect(lionModule.name).toEqual(testSchema.moduleName);
             });
         });
 
+    });
+
+    describe("badly formed schema", function () {
+        var testSchema, lionModule;
+        describe("missing form and model field", function () {
+            beforeEach(function () {
+                testSchema = {
+                    moduleName: "textForms"
+                };
+
+            });
+
+            it("will throw an error if form and schema are non-existent", function () {
+                var errorProneFunc = function () {
+                    Lion(testSchema);
+                }
+
+                expect(errorProneFunc).toThrow(new Error("Schema must contain either a `form` or `model` property at the top level"));
+
+            });
+
+        });
     });
 
 

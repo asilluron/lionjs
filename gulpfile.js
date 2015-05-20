@@ -13,11 +13,11 @@ var paths = {
 
 gulp.task("babel", function () {
   return gulp.src("src/**/*.js")
+    .pipe(sourcemaps.init())
+    .pipe(concat("lion.js"))
     .pipe(babel({
       modules: "umd"
     }))
-    .pipe(sourcemaps.init())
-    .pipe(concat("lion.js"))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("dist"));
 });

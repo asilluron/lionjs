@@ -6,8 +6,16 @@ module.exports = function (config) {
       'test/**/*.js': ['browserify']
     },
     files: [{
+        pattern: 'bower_components/angular/angular.js',
+        included: true,
+        served: true
+      }, {
+        pattern: 'bower_components/angular-mocks/angular-mocks.js',
+        included: true,
+        served: true
+      }, {
         pattern: 'bower_components/joi-browserify/joi-browserify.min.js',
-        included: false,
+        included: true,
         served: true
       },
       'test/unit/*.spec.js', {
@@ -16,6 +24,15 @@ module.exports = function (config) {
         served: true
       }
     ],
-    browsers: ['Chrome']
+    browsers: ['PhantomJS'],
+    browserify: {
+      debug: true,
+      configure: function (bundle) {
+        bundle.on('prebundle', function () {
+          bundle.external('joi-browserify');
+          bundle.external('angular');
+        });
+      }
+    }
   });
 };
