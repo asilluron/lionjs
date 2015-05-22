@@ -45,7 +45,21 @@ firstName -> firstNameValidator
 <input text="type" ng-model="name" first-name-validator/>
 ```
 
+#### Bootstrap Example
+```
+<form name="lionForm">
+  <label>
+    First Name:
+    <input type="text" ng-model="firstname" name="firstName" first-name-validator>
+  </label>
+  <div ng-messages="lionForm.firstName.$error" role="alert">
+    <div ng-message="alphanum">You must have an alphanumeric name</div>
+    <div ng-message="min">The min length is 3</div>
+    <div ng-message="max">The max length is 30</div>
+  </div>
+</form>
+```
 
-## Examples
+## Example Repos
 [Example Repo](https://github.com/asilluron/lionjs-gulp-example.git)
 
