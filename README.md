@@ -28,6 +28,15 @@ Required to start kick off the initial angular module
 
 ### Bootstrap
 Kick off LionjS
+
+LionJS comes with a custom build of [joi-browserify](https://github.com/asilluron/joi-browserify) `v0.0.5`. You need to include this version of joi-browserify which is located in the `dist` folder. You can also import it separately from the repo above.
+
+Using the bundled "joi-browserify"
+
+```
+require("node_modules/lionjs/dist/joi-browserify.min.js");
+```
+
 ```
 var modelConfig = require("modes.json!")
 require("lion");
