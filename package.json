@@ -1,6 +1,6 @@
 {
   "name": "lionjs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Lightweight model layer for Angular 1.x",
   "main": "dist/lion.js",
   "scripts": {
