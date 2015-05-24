@@ -2,8 +2,18 @@ module.exports = function (config) {
   config.set({
     frameworks: ['jasmine', 'browserify'],
     preprocessors: {
-      'dist/lion.js': ['browserify'],
+      'dist/lion.js': ['browserify', 'coverage'],
       'test/**/*.js': ['browserify']
+    },
+    reporters: ['progress', 'junit', 'coverage'],
+    junitReporter: {
+      outputFile: 'test-results.xml',
+      suite: ''
+    },
+    coverageReporter: {
+      type: 'html',
+      dir: 'test/coverage',
+      file: 'coverage.html'
     },
     files: [{
         pattern: 'test/helpers/describeEach.js',

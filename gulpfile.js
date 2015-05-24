@@ -29,7 +29,10 @@ gulp.task('karma-test', function (done) {
   karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true,
-    background: true
+    background: true,
+    coverageReporter: {
+      dir: process.env.CIRCLE_ARTIFACTS
+    }
   }, done);
 });
 

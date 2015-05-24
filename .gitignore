@@ -27,3 +27,7 @@ bower_components
 
 # Users Environment Variables
 .lock-wscript
+
+# Karma results
+test-results.xml
+test/coverage
