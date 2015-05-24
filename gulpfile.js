@@ -28,7 +28,8 @@ gulp.task("babel", function () {
 gulp.task('karma-test', function (done) {
   karma.start({
     configFile: __dirname + '/karma.conf.js',
-    singleRun: true
+    singleRun: true,
+    background: true
   }, done);
 });
 
