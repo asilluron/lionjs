@@ -6,6 +6,10 @@ module.exports = function (config) {
       'test/**/*.js': ['browserify']
     },
     files: [{
+        pattern: 'test/helpers/describeEach.js',
+        included: true,
+        served: true
+      }, {
         pattern: 'bower_components/angular/angular.js',
         included: true,
         served: true

@@ -4,7 +4,7 @@
   "description": "Lightweight model layer for Angular 1.x",
   "main": "dist/lion.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp babel; gulp karma-test"
   },
   "repository": {
     "type": "git",

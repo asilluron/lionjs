@@ -1,8 +1,8 @@
 var Lion = require("../../dist/lion");
 
 describe("Text Field Directive", function () {
-    describe("min schema", function () {
-        var testSchema, lionModule, $compile, $rootScope;
+    describe("basic schema", function () {
+        var testSchema, lionModule, $compile, $rootScope, element, form;
 
         beforeEach(function () {
             testSchema = {
@@ -13,7 +13,7 @@ describe("Text Field Directive", function () {
                         validators: ["alphanum", {
                             min: 3
                         }, {
-                            max: 30
+                            max: 10
                         }, "required"]
                     }
                 }
@@ -28,26 +28,70 @@ describe("Text Field Directive", function () {
         beforeEach(inject(function (_$compile_, _$rootScope_) {
             $compile = _$compile_;
             $rootScope = _$rootScope_;
-        }));
-
-        it('Replaces the element with the appropriate content', function () {
-            $rootScope.name = "test";
+            $rootScope.name = "";
             // Compile a piece of HTML containing the directive
-            var element = $compile("<field-first-name ng-model='name'></field-first-name>")($rootScope);
+            var element = $compile("<form name='form'><input type='text' name='firstName' first-name-validator ng-model='name'></form>")($rootScope);
 
             $rootScope.$digest();
+            form = $rootScope.form;
+        }));
 
-           // expect(element.html()).toContain("Name");
+        describe("min validator", function () {
+            it("will fail if min is too low", function () {
+                form.firstName.$setViewValue("AA");
+
+                $rootScope.$digest();
+
+                expect(form.firstName.$error.min).toBe(true);
+            });
+
+
+            it("will succeed if min is high enough", function () {
+                form.firstName.$setViewValue("AAA");
+
+                $rootScope.$digest();
+
+                expect(typeof form.firstName.$error.min).toBe("undefined");
+            });
+
         });
 
-        it("will return a directive for each key under 'form' in the schema", function () {
+        describe("alphanum", function () {
+            it("will fail if there are non-alpha characters", function () {
+                form.firstName.$setViewValue("AA!");
 
+                $rootScope.$digest();
 
+                expect(form.firstName.$error.alphanum).toBe(true);
+            });
 
+            it("will succeed if there are only alphanum characters", function () {
+                form.firstName.$setViewValue("AAB234");
+
+                $rootScope.$digest();
+
+                expect(typeof form.firstName.$error.alphanum).toBe("undefined");
+            });
         });
 
-        it("Directive will float a min length error, if input is less than specified", function () {
+        describe("max validator", function () {
+            it("will fail if there are too many characters", function () {
+                form.firstName.$setViewValue("AAABBBCCCDE");
 
+                $rootScope.$digest();
+
+                expect(form.firstName.$error.max).toBe(true);
+            });
+        });
+
+        describe("required validator", function () {
+            it("will fail if there is no input", function () {
+                form.firstName.$setViewValue("");
+
+                $rootScope.$digest();
+
+                expect(form.firstName.$error.required).toBe(true);
+            });
         });
     });
 });
