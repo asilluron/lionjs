@@ -45,6 +45,9 @@
 
                         if (typeof validator === 'object') {
                             validatorArg = validator[Object.keys(validator)[0]];
+                            if (!Array.isArray(validatorArg)) {
+                                validatorArg = [validatorArg];
+                            }
                             validator = Object.keys(validator)[0];
                         }
 
@@ -52,7 +55,7 @@
                             NgModelCtrl.$asyncValidators[validator] = function (modelValue, viewValue) {
                                 var microSchema;
                                 if (validatorArg) {
-                                    microSchema = schema[validator](validatorArg);
+                                    microSchema = schema[validator].apply(schema, validatorArg);
                                 } else {
                                     microSchema = schema[validator]();
                                 }
