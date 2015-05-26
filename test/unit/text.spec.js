@@ -11,7 +11,7 @@ describe("Text Field Directive", function () {
                     firstName: {
                         type: "string",
                         validators: ["alphanum", {
-                            min: 3
+                            min: [3, "utf8"]
                         }, {
                             max: 10
                         }, "required"]
