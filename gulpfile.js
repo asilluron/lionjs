@@ -51,7 +51,7 @@ gulp.task('watch', function (done) {
 });
 
 
-gulp.task('develop', ['watch', 'tdd']);
+gulp.task('develop', ['babel', 'watch', 'tdd']);
 
 
 gulp.task('default', ['babel']);
