@@ -31,3 +31,4 @@ bower_components
 # Karma results
 test-results.xml
 test/coverage
+karma
