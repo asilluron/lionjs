@@ -31,6 +31,9 @@ function formBuilder(fieldName, fieldSchema, angularModule) {
 
                     if (typeof validator === "object") {
                         validatorArg = validator[Object.keys(validator)[0]];
+                        if (!Array.isArray(validatorArg)) {
+                            validatorArg = [validatorArg];
+                        }
                         validator = Object.keys(validator)[0];
                     }
 
@@ -38,7 +41,7 @@ function formBuilder(fieldName, fieldSchema, angularModule) {
                         NgModelCtrl.$asyncValidators[validator] = (modelValue, viewValue) => {
                             var microSchema;
                             if (validatorArg) {
-                                microSchema = schema[validator](validatorArg);
+                                microSchema = schema[validator].apply(schema, validatorArg);
                             } else {
                                 microSchema = schema[validator]();
                             }
