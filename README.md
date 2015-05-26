@@ -18,7 +18,7 @@ Required to start kick off the initial angular module
             "validators": ["alphanum", {
                 "min": 3
             }, {
-                "max": 30
+                "max": [30, 'utf8']
             }, "required"]
         }
     }
