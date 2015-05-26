@@ -7,8 +7,8 @@ module.exports = function (config) {
     },
     reporters: ['progress', 'junit', 'coverage'],
     junitReporter: {
-      outputFile: 'test-results.xml',
-      suite: ''
+      outputFile: path.join(process.env.CIRCLE_TEST_REPORTS || '.', "karma", "junit.xml"),
+      suite: 'karma'
     },
     coverageReporter: {
       type: 'html',
