@@ -1,4 +1,5 @@
 [![Circle CI](https://circleci.com/gh/asilluron/lionjs.svg?style=shield)](https://circleci.com/gh/asilluron/lionjs)
+[![Stories in Ready](https://badge.waffle.io/asilluron/lionjs.png?label=ready&title=Ready)](http://waffle.io/asilluron/lionjs)
 
 lionjs
 ======
