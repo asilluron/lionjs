@@ -1,13 +1,26 @@
 [![Circle CI](https://circleci.com/gh/asilluron/lionjs.svg?style=shield)](https://circleci.com/gh/asilluron/lionjs)
 [![Stories in Ready](https://badge.waffle.io/asilluron/lionjs.png?label=ready&title=Ready)](http://waffle.io/asilluron/lionjs)
 
-lionjs
+LionJS
 ======
+Lightweight Model Layers for Angular 1.x powered by Joi
 
-Lightweight Model Layers for Angular 1.x
+Validating input data and creating model layers in Angular is often formulaic and time consuming. Using LionJS, this time-consuming process can be done automatically by leveraging [Joi](https://github.com/hapijs/joi).
 
-## Usage
-### JSON Format
+
+LionJS introduces a new format for defining Joi schemas that maps directly and consistently to its backend counterpart.
+
+*For instance*
+
+### Joi Format
+
+#### Native
+```
+var joiSchema = Joi.string().alphanum().min(3).max(30, 'utf8').required();
+```
+can be expressed for the front end as:
+
+#### JSON
 Required to start kick off the initial angular module
 
 ```
@@ -31,6 +44,10 @@ Required to start kick off the initial angular module
 Kick off LionjS
 
 LionJS comes with a custom build of [joi-browserify](https://github.com/asilluron/joi-browserify) `v0.0.5`. You need to include this version of joi-browserify which is located in the `dist` folder. You can also import it separately from the repo above.
+
+|JSPM        |NPM|Bower|
+|-----     |-----|----|
+|``` jspm install github:asilluron/joi-browserify ```|``` npm install ```| test |
 
 Using the bundled "joi-browserify"
 
